@@ -42,3 +42,16 @@ class Solution:
         self.branches(left,head,"left")
         self.branches(right,head,"right")
         return head
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+        if not nums: return
+        med = len(nums) // 2
+        return TreeNode(nums[med], self.sortedArrayToBST(nums[:med]), self.sortedArrayToBST(nums[med+1:])) 
